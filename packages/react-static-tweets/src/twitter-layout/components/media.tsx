@@ -1,6 +1,5 @@
 import React from 'react'
 // import dynamic from 'next/dynamic' // TODO
-import Image from 'next/image'
 import { useTweet } from './tweet/tweet'
 
 export const Img = ({ width, height, src, ...p }) => {
@@ -11,9 +10,6 @@ export const Img = ({ width, height, src, ...p }) => {
     <details className='static-tweet-details'>
       <summary
         className='static-tweet-summary'
-        style={{
-          paddingBottom: `${(height / width) * 100 || 0}%`
-        }}
       >
         <a
           href={tweetUrl}
@@ -21,12 +17,11 @@ export const Img = ({ width, height, src, ...p }) => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <Image
-            {...p}
+          <img
             src={`${src}&name=small`}
-            layout='fill'
-            objectFit='cover'
-            quality={80}
+            style={{ objectFit: "cover" }}
+            alt=""
+            {...p}
           />
         </a>
       </summary>
